@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t>0){
+            int coins=0;
+            int n1=sc.nextInt();
+            int n2=sc.nextInt();
+            coins=n1+n2;
+            if(coins%3==0&&n1<=2*n2&&n2<=2*n1){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO");
+            }
+            t--;
+        }
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Main. */
+    }
+}
