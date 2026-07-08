@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    static void generateSubsets(int[] arr,int index,List<Integer>current){
+        if(!current.isEmpty()){
+            for(int i=0;i<current.size();i++){
+                if(i>0) System.out.print(" ");
+                System.out.print(current.get(i));
+            }
+            System.out.println();
+        }
+        for(int i=index;i<arr.length;i++){
+            current.add(arr[i]);
+            generateSubsets(arr,i+1,current);
+            current.remove(current.size()-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+
+        while(t-->0){
+            int n=sc.nextInt();
+            int[] a=new int[n];
+
+            for(int i=0;i<n;i++){
+                a[i]=sc.nextInt();
+            }
+            Arrays.sort(a);
+            generateSubsets(a,0,new ArrayList<>());
+
+            if(t>0){
+                System.out.println();
+            }
+    
+        }
+
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Main. */
+    }
+}
